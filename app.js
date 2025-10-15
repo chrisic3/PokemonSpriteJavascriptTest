@@ -3,8 +3,15 @@
 const container = document.querySelector("#container");
 
 for (let i = 1; i <= 151; i++) {
-    let sprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png`
-    let image = document.createElement("img");
-    image.src = sprite;
-    container.appendChild(image);
+    const baseUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon";
+    const card = document.createElement("div");
+    const image = document.createElement("img");
+    const label = document.createElement("span");
+
+    card.classList.add("pokemon");
+    image.src = `${baseUrl}/${i}.png`;
+    label.innerText = `${i}`;
+    card.appendChild(image);
+    card.appendChild(label);
+    container.appendChild(card);
 }
